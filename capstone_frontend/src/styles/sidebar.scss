@@ -57,3 +57,10 @@
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
+
+h1 {
+  @include logoStyle();
+  position: absolute;
+  margin: 0 auto;
+  right: 100px;
+}
