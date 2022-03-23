@@ -1,14 +1,39 @@
-button {
-  background-color: #C41E3D;
-  font-size: 20px;
-  color: #FFF;
-  border-radius: 100%;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-          box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+body {
+  margin: 30px;
 }
 
-button:hover {
-  -webkit-box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-          box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+h1 {
+  font-family: "VT323", monospace;
+  font-size: 40px;
+  color: #121113;
+  text-shadow: 2px 0px #C41E3D, 4px 0px #662C91, 6px 0px #FFB627, 8px 0px #72DDF7;
+}
+
+a {
+  font-family: "Oswald", sans-serif;
+  color: #C41E3D;
+  font-size: 20px;
+  text-shadow: 2px 2px 0 #FFB627;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FFB627;
+  text-shadow: 2px 2px 0 #C41E3D;
+}
+
+input {
+  margin: 15px 0;
+  font-size: 16px;
+  padding: 10px;
+  width: 250px;
+  border: 3px solid #C41E3D;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: #121113;
+  color: #C41E3D;
+  outline: none;
+  border-radius: 5px;
 }
 /*# sourceMappingURL=home.css.map */

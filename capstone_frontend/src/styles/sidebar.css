@@ -1,0 +1,60 @@
+#page-wrap {
+  text-align: center;
+  overflow: auto;
+  top: 45%;
+  position: relative;
+}
+
+.bm-item {
+  display: inline-block;
+  font-family: "Oswald", sans-serif;
+  color: #C41E3D;
+  font-size: 15px;
+  text-shadow: 2px 2px 0 #662C91;
+  text-decoration: none;
+}
+
+.bm-item:hover {
+  color: #662C91;
+  text-shadow: 2px 2px 0 #C41E3D;
+}
+
+.bm-burger-button {
+  position: fixed;
+  left: 20px;
+  width: 20px;
+  height: 10px;
+  top: 36px;
+}
+
+.bm-burger-bars {
+  background: #373a47;
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-cross {
+  background: #bdc3c7;
+}
+
+.bm-menu {
+  background: #000;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+.bm-item-list {
+  color: #b8b7ad;
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+/*# sourceMappingURL=sidebar.css.map */

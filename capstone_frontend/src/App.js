@@ -1,9 +1,11 @@
 import React from 'react'
-import './styles/home.css'
+
+import './styles/sidebar.css' 
+import Sidebar from './components/sidebar'
 const App = () => {
   return (
     <>
-    <button>x</button>
+    <Sidebar />
     </>
   )
 }
