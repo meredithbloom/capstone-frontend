@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import {Routes, Route, BrowserRouter} from 'react-router-dom';
+import {
+  BrowserRouter,
+  Router,
+  Routes,
+  Route,
+  Link,
+  Outlet,
+  NavLink
+} from 'react-router-dom';
 
 import './styles/sidebar.css' 
 import Sidebar from './components/sidebar'
-import Home from './components/home'
+//import Home from './components/home'
 import Game from './components/game'
-import Profile from './components/profile'
+//import Profile from './components/profile'
 import axios from 'axios'
 
 const App = () => {
@@ -16,9 +24,10 @@ const App = () => {
   const [toggleError, setToggleError] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
   const [toggleLogout, setToggleLogout] = useState(false)
-  const [games, setGames] = useState({})
+  const [games, setGames] = useState([])
   const [showGame, setShowGame] = useState(null)
   const [gameID, setGameID] = useState(null)
+  
 
 
   // GET
@@ -32,10 +41,12 @@ const App = () => {
         page_size: 5
        }
     }).then((response) => {
-      console.log(response.data.results)
+      setGames(response.data.results)
       //setShowGame(response.data.results[0].id)
       //console.log(showGame)
-      setGames(response.data.results)
+      console.log(games)
+    }).catch((error) => {
+      console.error(error)
     })
   }
 
@@ -50,33 +61,37 @@ const App = () => {
       }
     }).then((response) => {
       console.log(response.data)
+      //setGameID(response.data.id)
     })
   }
 
 
   useEffect(() => {
     getGames()
+    //getGame()
   }, [])
 
 
   return (
-    <BrowserRouter>
-      <Sidebar />
-      <h1>appname</h1>
-      <Routes>
-        <Route exact path="/game" element={<Game />} />
-        <Route exact path="/profile" element={<Profile />}/>
-      </Routes>
-      {games.map((game) => {
-        return (
-          <>
-            <button onClick={() => getGame(game.id)}>
-              {game.name}
-            </button>
-          </>
-        )
-      })}
-    </BrowserRouter> 
+    <>
+        <Sidebar />
+        <h1>appname</h1>
+  
+        {games.map((game) => {
+          return (
+            <>
+              <br/><br/><br/><br/>
+              {/* <button onClick={() => setGameID(game.id)} key={game.id}>
+                {game.name}
+              </button> */}
+              <NavLink to={`/games/${game.id}`} key={game.id}>
+                {game.name}
+              </NavLink>
+            </>
+          )
+        })}
+      <Outlet/>
+    </>
   )
 }
 export default App

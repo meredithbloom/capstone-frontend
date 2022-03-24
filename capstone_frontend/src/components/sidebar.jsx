@@ -1,25 +1,26 @@
 import React from "react";
 import { stack as Menu } from "react-burger-menu";
 import '../styles/sidebar.css'
+import { Outlet, Link } from "react-router-dom";
 
 export default props => {
   return (
     <Menu {...props}>
-      <a className="menu-item" href="/">
+      <Link className="menu-item" to="/">
         Home
-      </a>
+      </Link>
 
-      <a className="menu-item" href="/">
+      <Link className="menu-item" to="/">
         Disover
-      </a>
+      </Link>
 
-      <a className="menu-item" href="/profile">
+      <Link className="menu-item" to="/profile">
         Profile
-      </a>
+      </Link>
 
-      <a className="menu-item" href="/">
+      <Link className="menu-item" to="/">
         Play
-      </a>
+      </Link>
     </Menu>
   );
 };
