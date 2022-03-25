@@ -10,7 +10,7 @@ export default props => {
         Home
       </Link>
 
-      <Link className="menu-item" to="/">
+      <Link className="menu-item" to="/games">
         Disover
       </Link>
 

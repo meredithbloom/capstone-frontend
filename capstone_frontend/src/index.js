@@ -10,14 +10,14 @@ import Game from './components/game'
 
 const rootElement = document.getElementById('root')
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}> 
-        <Route path="/games/:gameId" element={<Game />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>,
-  rootElement
+  <React.StrictMode>
+     <BrowserRouter>
+      <Routes>
+        <Route path="/*" element={<App />}/>    
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>
+ , rootElement
 );
 
 // If you want to start measuring performance in your app, pass a function

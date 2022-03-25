@@ -11,8 +11,9 @@ import {
 
 import './styles/sidebar.css' 
 import Sidebar from './components/sidebar'
-//import Home from './components/home'
 import Game from './components/game'
+import Home from './components/home'
+import Discover from './components/discover'
 //import Profile from './components/profile'
 import axios from 'axios'
 
@@ -26,11 +27,11 @@ const App = () => {
   const [toggleLogout, setToggleLogout] = useState(false)
   const [games, setGames] = useState([])
   const [showGame, setShowGame] = useState(null)
-  const [gameID, setGameID] = useState(null)
+  //const [gameID, setGameID] = useState(null)
   
 
 
-  // GET
+  // GET - general games 
   const getGames = () => {
     axios({
       url: '/games',
@@ -50,8 +51,8 @@ const App = () => {
     })
   }
 
-
-  const getGame = (gameID) => {
+  //GET - show game page
+  const handleGameDetails = (gameID) => {
     axios({
       url: '/games/' + gameID,
       method: 'get',
@@ -60,37 +61,40 @@ const App = () => {
         key: API_KEY
       }
     }).then((response) => {
-      console.log(response.data)
+      setShowGame(response.data)
+      //console.log(response.data)
+      console.log(showGame)
       //setGameID(response.data.id)
+
     })
   }
 
 
   useEffect(() => {
     getGames()
-    //getGame()
+    
   }, [])
 
 
   return (
     <>
-        <Sidebar />
-        <h1>appname</h1>
-  
-        {games.map((game) => {
-          return (
-            <>
-              <br/><br/><br/><br/>
-              {/* <button onClick={() => setGameID(game.id)} key={game.id}>
-                {game.name}
-              </button> */}
-              <NavLink to={`/games/${game.id}`} key={game.id}>
-                {game.name}
-              </NavLink>
-            </>
-          )
-        })}
-      <Outlet/>
+      <h1>appname</h1>
+      <Sidebar/>
+      <Routes>
+        <Route index element={<Home />}/>
+        <Route path="games"
+          element={<Discover
+            getGames={getGames}
+            handleGameDetails={handleGameDetails}
+          />}/>
+        <Route path="games/:gameId"
+          element={<Game
+            handleGameDetails={handleGameDetails}
+            //showGame={showGame}
+            //gameID={gameID}
+          />}
+        />
+      </Routes>
     </>
   )
 }
