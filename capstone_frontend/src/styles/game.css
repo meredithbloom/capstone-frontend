@@ -1,1 +1,9 @@
-/* No CSS *//*# sourceMappingURL=game.css.map */
+.gamediv img {
+  width: 50%;
+}
+
+.infobox {
+  height: 100px;
+  overflow: scroll;
+}
+/*# sourceMappingURL=game.css.map */
