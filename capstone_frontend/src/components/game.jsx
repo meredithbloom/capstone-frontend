@@ -13,8 +13,6 @@ const Game = (props) => {
   const [game, setGame] = useState(null)
   const [platform, setPlatform] = useState(null)
 
-
-
   const getGame = (gameID) => {
     axios({
       url: '/games/' + gameID,
@@ -32,7 +30,6 @@ const Game = (props) => {
     })
   }
 
-
   useEffect(() => {
     getGame(gameID)
   }, [])
@@ -42,37 +39,46 @@ const Game = (props) => {
       {game ? (
         <>
         <div className="gamediv">
-        <h5>{game.name}</h5>
-        <img src={game.background_image}/>
-        <ul>
-        <li>{[game.rating]}</li>
-          <li>{[game.genres[0].name]}, {[game.genres[1].name]}</li>
-          <li>{[game.developers[0].name]}</li>
-          <li>{[game.esrb_rating.name]}</li>
-          <li>{[game.released]}</li>
-          <li>{[game.playtime]}</li>
-          <li>{[game.description_raw]}</li>
-          <li>platforms:<ul>{game.platforms.map((platform) => {
-            return (
-                <li>{platform.platform.name}</li> 
-            )
-          })}</ul></li>
+          <h5>{game.name}</h5>
+          <img src={game.background_image}/>
+        <div className="gaminfo">
+          <ul>
+            <li>{[game.rating]}</li>
+            <li>{[game.genres[0].name]}, {[game.genres[1].name]}</li>
+            <li>{[game.developers[0].name]}</li>
+            <li>{[game.esrb_rating.name]}</li>
+            <li>{[game.released]}</li>
+            <li>{[game.playtime]}</li>
+            <li>{[game.description_raw]}</li>
           </ul>
-          <div className="infobox">tags:<ul>{game.tags.map((tag) => {
-            return (
-                <li>{tag.name}</li> 
-            )
-          })}</ul></div>
+          <div className="infobox">
+            platforms:
+            <ul>
+              {game.platforms.map((platform) => {
+                return (
+                  <li>{platform.platform.name}</li> 
+                )
+              })}
+            </ul>
+          </div>
+          <div className="infobox">
+            tags:
+              <ul>
+                {game.tags.map((tag) => {
+                  return (
+                   <li>{tag.name}</li> 
+                  )
+                })}
+              </ul>
+          </div>
         </div>
-        </>
-      ) : (
-          null
-      )}
-      
+      </div>
     </>
+    ) : (
+      null
+    )}
+  </>
   )
-
-
 }
 
 

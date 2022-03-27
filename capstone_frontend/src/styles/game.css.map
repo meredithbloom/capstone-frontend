@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAEA,AACI,QADI,CACJ,GAAG,CAAC;EACA,KAAK,EAAE,GAAG;CACb;;AAEL,AAAA,QAAQ,CAAC;EACL,MAAM,EAAE,KAAK;EACb,QAAQ,EAAE,MAAM;CACnB",
+    "mappings": "",
     "sources": [
         "game.scss",
         "../variables/variables.scss"
