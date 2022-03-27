@@ -9,6 +9,7 @@ $color2: #662C91;
 $color3: #121113;
 $color4: #FFB627;
 $color5: #72DDF7;
+$color6: #252525;
 
 //VARIABLES
 @mixin buttonStyle($bgcolor, $size) {
@@ -25,7 +26,7 @@ $color5: #72DDF7;
 @mixin logoStyle() {
     font-family: $font1;
     font-size: 40px;
-    color: $color3;
+    color: $color6;
     text-shadow: 2px 0px $color1, 4px 0px $color2, 6px 0px $color4, 8px 0px $color5;
 }
 

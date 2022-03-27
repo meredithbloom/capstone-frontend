@@ -78,8 +78,10 @@ const App = () => {
 
   return (
     <>
-      <h1>appname</h1>
+      <div className="nav">
       <Sidebar/>
+      <h1>appname</h1>
+      </div>
       <Routes>
         <Route index element={<Home />}/>
         <Route path="games"

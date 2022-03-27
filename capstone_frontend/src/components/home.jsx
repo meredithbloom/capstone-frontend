@@ -6,7 +6,7 @@ import Sidebar from './sidebar'
 
 const Home = (props) => {
     return (
-       <h3>Welcome to appname!</h3>
+        <></>
    )
 
 
