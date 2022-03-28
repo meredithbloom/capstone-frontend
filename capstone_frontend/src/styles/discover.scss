@@ -1,7 +1,26 @@
 @import "../variables/variables.scss";
 
 @media (max-width: 480px) {
-
+    .discgrid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    img {
+        width: 150px;
+        border: .5px solid $color1;
+        padding: 1px;
+        margin: 10px;
+    }
+    h5 {
+        @include titleStyle(18px);
+        text-align: center;
+        margin-top: 5px;
+    }
+    
 }
 @media (min-width: 481px) and (max-width: 768px) {
 

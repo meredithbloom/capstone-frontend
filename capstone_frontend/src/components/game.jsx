@@ -2,6 +2,7 @@ import '../styles/game.css'
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { AiFillStar } from 'react-icons/ai'
 
 
 
@@ -41,16 +42,17 @@ const Game = (props) => {
         <div className="gamediv">
           <h5>{game.name}</h5>
           <img src={game.background_image}/>
-        <div className="gaminfo">
+        <div className="gameinfo">
           <ul>
-            <li>{[game.rating]}</li>
+            <li>{[game.rating]}<AiFillStar /></li>
             <li>{[game.genres[0].name]}, {[game.genres[1].name]}</li>
-            <li>{[game.developers[0].name]}</li>
-            <li>{[game.esrb_rating.name]}</li>
-            <li>{[game.released]}</li>
-            <li>{[game.playtime]}</li>
-            <li>{[game.description_raw]}</li>
-          </ul>
+            <li>developer: {[game.developers[0].name]}</li>
+            <li>ESRB rating: {[game.esrb_rating.name]}</li>
+            <li>release date: {[game.released]}</li>
+            <li>playtime: {[game.playtime]} hours</li>
+            </ul>
+            </div>
+            <div className="desc">{[game.description_raw]}</div>
           <div className="infobox">
             platforms:
             <ul>
@@ -72,7 +74,6 @@ const Game = (props) => {
               </ul>
           </div>
         </div>
-      </div>
     </>
     ) : (
       null

@@ -1,8 +1,7 @@
 //FONTS
 $font1: 'VT323', monospace;
 $font2: 'Bebas Neue', cursive;
-$font3: 'VT323', monospace;
-$font4: 'Oswald', sans-serif;
+$font3: 'Oswald', sans-serif;
 //COLORS
 $color1: #C41E3D;
 $color2: #662C91;
@@ -26,12 +25,12 @@ $color6: #252525;
 @mixin logoStyle() {
     font-family: $font1;
     font-size: 40px;
-    color: $color6;
+    color: $color4;
     text-shadow: 2px 0px $color1, 4px 0px $color2, 6px 0px $color4, 8px 0px $color5;
 }
 
     @mixin linkStyle($color, $shadow, $size) {
-    font-family: $font4;
+    font-family: $font3;
     color: $color;
     font-size: $size;
     text-shadow: 2px 2px 0 $shadow;
@@ -43,8 +42,20 @@ $color6: #252525;
     }
 
 }
-@mixin postStyle() {
-
+@mixin titleStyle($size) {
+        font-family: $font2;
+        color: $color1;
+        font-size: $size;
+        text-shadow: 2px 3px 0 $color4;
+}
+@mixin postStyle($width, $height) {
+    width: $width;
+    height: $height;
+    background-color: $color1;
+    overflow: scroll;
+    border: .5px solid $color4;
+    margin: 10px;
+    padding: 1px;
 }
 @mixin inputStyle() {
     margin: 15px 0;

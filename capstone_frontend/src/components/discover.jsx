@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { BrowserRouter, Routes, Route, Link, Outlet, NavLink } from 'react-router-dom'
 import Sidebar from './sidebar'
-
+import '../styles/discover.css'
 
 const Discover = (props) => {
     const API_KEY = "5a0fda4695714f4fbe032f2e92aca709"
@@ -40,18 +40,24 @@ const Discover = (props) => {
         <>
             {toggleGames ? (
                 <>
+                <div className="discgrid">
                     {games.map((game) => {
                         return (
                             <div key={game.id}>
+                                
                                 <Link to={`${game.id}`}>
                                     <div
                                         onClick={() => { setGameID(game.id) }}>
-                                        {game.name}
+                                        <img src={game.background_image}/>
+                                        
                                     </div>
                                 </Link>
-                            </div>
+                                <h5>{game.name}</h5>
+                                </div>
+                            
                         )
                     })}
+                    </div>
                 </>
             ) : (
                     null

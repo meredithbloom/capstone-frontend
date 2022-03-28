@@ -1,1 +1,129 @@
-/* No CSS *//*# sourceMappingURL=game.css.map */
+body {
+  background-color: #121113;
+}
+
+@media (max-width: 480px) {
+  .gamediv {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .gamediv img {
+    width: 300px;
+    border: 0.5px solid #C41E3D;
+    padding: 1px;
+  }
+  h5 {
+    font-family: "Bebas Neue", cursive;
+    color: #C41E3D;
+    font-size: 30px;
+    text-shadow: 2px 3px 0 #FFB627;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+  .gameinfo {
+    width: 60%;
+    height: 175px;
+    background-color: #C41E3D;
+    overflow: scroll;
+    border: 0.5px solid #FFB627;
+    margin: 10px;
+    padding: 1px;
+  }
+  .gameinfo li {
+    list-style: none;
+    font-family: "Oswald", sans-serif;
+  }
+  .desc {
+    width: 80%;
+    height: 300px;
+    background-color: #C41E3D;
+    overflow: scroll;
+    border: 0.5px solid #FFB627;
+    margin: 10px;
+    padding: 1px;
+    padding: 10px;
+    font-family: "Oswald", sans-serif;
+  }
+  .infobox {
+    width: 40%;
+    height: 150px;
+    background-color: #C41E3D;
+    overflow: scroll;
+    border: 0.5px solid #FFB627;
+    margin: 10px;
+    padding: 1px;
+    font-family: "Oswald", sans-serif;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .gamediv {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 30px;
+  }
+  .gamediv img {
+    width: 400px;
+    border: 0.5px solid #C41E3D;
+    padding: 1px;
+  }
+  h5 {
+    font-family: "Bebas Neue", cursive;
+    color: #C41E3D;
+    font-size: 35px;
+    text-shadow: 2px 3px 0 #FFB627;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+  .gameinfo {
+    width: 60%;
+    height: 175px;
+    background-color: #C41E3D;
+    overflow: scroll;
+    border: 0.5px solid #FFB627;
+    margin: 10px;
+    padding: 1px;
+  }
+  .gameinfo li {
+    list-style: none;
+    font-family: "Oswald", sans-serif;
+  }
+  .desc {
+    width: 80%;
+    height: 300px;
+    background-color: #C41E3D;
+    overflow: scroll;
+    border: 0.5px solid #FFB627;
+    margin: 10px;
+    padding: 1px;
+    padding: 10px;
+    font-family: "Oswald", sans-serif;
+  }
+  .infobox {
+    width: 40%;
+    height: 150px;
+    background-color: #C41E3D;
+    overflow: scroll;
+    border: 0.5px solid #FFB627;
+    margin: 10px;
+    padding: 1px;
+    font-family: "Oswald", sans-serif;
+  }
+}
+/*# sourceMappingURL=game.css.map */
