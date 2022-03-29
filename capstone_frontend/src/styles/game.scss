@@ -49,9 +49,8 @@ body {
         }
     }
     h5 {
-        @include titleStyle(35px);
-        margin-bottom: 10px;
-        margin-top: 30px;
+        @include titleStyle(70px);
+        margin: 40px;
     }
     .gameinfo {
         li {
@@ -71,11 +70,68 @@ body {
     }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
-
+    .gamediv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 30px;
+        img {
+            width: 400px; 
+            border: .5px solid $color1;
+            padding: 1px;
+        }
+    }
+    h5 {
+        @include titleStyle(70px);
+        margin: 40px;
+    }
+    .gameinfo {
+        li {
+            list-style: none;
+            font-family: $font3;
+        }
+        @include postStyle(60%, 175px)
+    }
+    .desc {
+        @include postStyle(80%, 300px);
+        padding: 10px;
+        font-family: $font3;
+    }
+    .infobox {
+        @include postStyle(40%, 150px);
+        font-family: $font3;
+    }
 }
-@media (min-width: 1025px) and (max-width: 1280px) {
-
-}
-@media (min-width: 1281px){
-
+@media (min-width: 1025px){
+    .gamediv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 30px;
+        img {
+            width: 400px; 
+            border: .5px solid $color1;
+            padding: 1px;
+        }
+    }
+    h5 {
+        @include titleStyle(200px);
+        margin: 40px;
+    }
+    .gameinfo {
+        li {
+            list-style: none;
+            font-family: $font3;
+        }
+        @include postStyle(60%, 250px)
+    }
+    .desc {
+        @include postStyle(80%, 500px);
+        padding: 10px;
+        font-family: $font3;
+    }
+    .infobox {
+        @include postStyle(40%, 150px);
+        font-family: $font3;
+    }
 }

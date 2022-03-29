@@ -51,7 +51,8 @@ $color6: #252525;
 @mixin postStyle($width, $height) {
     width: $width;
     height: $height;
-    background-color: $color1;
+    background-color: $color6;
+    color: $color1;
     overflow: scroll;
     border: .5px solid $color4;
     margin: 10px;

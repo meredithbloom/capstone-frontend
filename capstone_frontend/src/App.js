@@ -14,6 +14,7 @@ import Sidebar from './components/sidebar'
 import Game from './components/game'
 import Home from './components/home'
 import Discover from './components/discover'
+import MiniGames from './components/minigame'
 //import Profile from './components/profile'
 import axios from 'axios'
 
@@ -96,6 +97,7 @@ const App = () => {
             //gameID={gameID}
           />}
         />
+        <Route path="play" element={<MiniGames />}/>
       </Routes>
     </>
   )

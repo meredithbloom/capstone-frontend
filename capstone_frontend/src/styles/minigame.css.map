@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAUA,MAAM,EAAE,SAAS,EAAE,MAAM;EACzB,AAAA,UAAU,CAAC;IACP,OAAO,EAAE,IAAI;IACb,cAAc,EAAE,GAAG;IACnB,SAAS,EAAE,IAAI;IACf,MAAM,EAAE,MAAM;GACjB;EACD,AAAA,SAAS,CAAC;IACN,MAAM,EAAE,IAAI;GAEf",
     "sources": [
         "minigame.scss",
         "../variables/variables.scss"

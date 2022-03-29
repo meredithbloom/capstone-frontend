@@ -18,7 +18,7 @@ export default props => {
         Profile
       </Link>
 
-      <Link className="menu-item" to="/">
+      <Link className="menu-item" to="/play">
         Play
       </Link>
     </Menu>
