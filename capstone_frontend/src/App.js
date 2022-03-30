@@ -16,6 +16,7 @@ import Home from './components/home'
 import Discover from './components/discover'
 import MiniGames from './components/minigame'
 //import Profile from './components/profile'
+import Register from './components/register';
 import axios from 'axios'
 
 const App = () => {
@@ -84,7 +85,8 @@ const App = () => {
       <h1>appname</h1>
       </div>
       <Routes>
-        <Route index element={<Home />}/>
+        <Route index element={<Home />} />
+        <Route path="register" element={<Register/>}/>
         <Route path="games"
           element={<Discover
             getGames={getGames}
