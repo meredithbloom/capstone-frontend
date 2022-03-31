@@ -8,7 +8,7 @@ import {
   Outlet,
   NavLink
 } from 'react-router-dom';
-
+import '../styles/login.css'
 
 import axios from 'axios';
 
@@ -35,13 +35,15 @@ const Login = (props) => {
 
     return (
         <div>
+            <div className="logindiv">
             <h2>Log In</h2>
             <br/><br/>
-            <input type="text" name="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input className="inputs" type="text" name="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
             <br/><br/>
-            <input type="password" name="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <input className="inputs" type="password" name="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             <br /><br/>
-            <button onClick={(e) => handleSubmit()}>Log In</button>
+            <button className="btn" onClick={(e) => handleSubmit()}>Log In</button>
+            </div>
             
             {toggleError ? (
                 <p>

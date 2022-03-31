@@ -13,6 +13,7 @@ $color6: #252525;
 //VARIABLES
 @mixin buttonStyle($bgcolor, $size) {
     background-color: $bgcolor;
+    padding: 5px;
     font-size: $size;
     color: #FFF;
     border-radius: 100%;
@@ -71,5 +72,4 @@ $color6: #252525;
   color: $color1;
   outline: none;
   border-radius: 5px;
-
 }
