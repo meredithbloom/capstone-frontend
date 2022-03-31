@@ -19,28 +19,14 @@ const Register = (props) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    //let newUser = { name, email, password };
+    const [successMessage, setSuccessMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
 
-
-    const signUp = () => {
+    const handleSubmit = () => {
         let newUser = { name, email, password };
-        console.log(newUser);
-        axios({
-            method: 'post',
-            url: 'http://localhost:8000/api/register',
-            data: newUser
-        }).then((response) => {
-            console.log(response.data);
-        }).catch((error) => {
-            console.error(error);
-        })
+        props.handleSignUp(newUser);
     }
-
-
-
-
-
 
 
     return (
@@ -53,7 +39,7 @@ const Register = (props) => {
             <br/><br/>
             <input type="password" name="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             <br /><br/>
-            <button onClick={(e) => signUp()}>Sign Up</button>
+            <button onClick={handleSubmit}>Sign Up</button>
             <br/>
         </div>
     )
