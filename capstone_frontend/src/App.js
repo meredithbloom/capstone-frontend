@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 import {
   BrowserRouter,
   Router,
@@ -6,7 +6,8 @@ import {
   Route,
   Link,
   Outlet,
-  NavLink
+  NavLink, 
+  useNavigate
 } from 'react-router-dom';
 
 import './styles/sidebar.css' 
@@ -23,6 +24,7 @@ import Reviews from './components/allreviews';
 
 const App = () => {
 
+  //let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
   const API_KEY = "5a0fda4695714f4fbe032f2e92aca709"
   const BASE_URL = 'https://api.rawg.io/api'
   const [toggleLogin, setToggleLogin] = useState(true)
@@ -34,42 +36,66 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
   const [reviews, setReviews] = useState()
+  let navigate = useNavigate()
   //const [gameID, setGameID] = useState(null)
 
 
   //POST - CREATE USER
   const handleSignUp = (newUser) => {
-    console.log(newUser);
-    axios({
-        method: 'post',
-        url: 'http://localhost:8000/api/register',
-        data: newUser
-    }).then((response) => {
-        console.log(response.data);
-    }).catch((error) => {
-        console.error(error);
-    })
-    }
+    //console.log(newUser)
+    axios.get('http://localhost:8000/sanctum/csrf-cookie')
+      .then((response) => {
+        axios({
+          url: 'http://localhost:8000/api/register',
+          method: 'post',
+          headers:  {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain",
+            "X-Requested-With": "XMLHttpRequest"
+          },
+          data: newUser
+        })
+        .then(
+          (response) => {
+            console.log(response.data);
+          }, (error) => {
+            console.error(error);
+          })
+      })
+  }
 
   //POST - LOGIN USER
   const handleLogin = (loggedUser) => {
-    console.log(loggedUser)
-    axios({
-      method: 'post',
-      url: 'http://localhost:8000/api/login',
-      data: {
-        email: loggedUser.email,
-        password: loggedUser.password
-      }
-    }).then((response) => {
-      console.log(response.data);
-      if (response.data.email) {
-        setCurrentUser(response.data);
-      } else {
-        setToggleError(true);
-        setErrorMessage(response.data.error);
-      }
-    })
+    //console.log(loggedUser)
+    axios.get('http://localhost:8000/sanctum/csrf-cookie')
+      .then((response) => {
+        axios({
+          url: 'http://localhost:8000/api/login',
+          method: 'post',
+          headers:  {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain",
+            "X-Requested-With": "XMLHttpRequest"
+          },
+          data: loggedUser
+        })
+        .then(
+          (response) => {
+            if (response.data.token) {
+              setIsAuthenticated(true)
+              setCurrentUser(response.data.user)
+              setToggleError(false)
+              setToggleLogin(false)
+              setToggleLogout(true)
+              navigate('/')
+            } else {
+              setToggleError(true)
+              setErrorMessage(response.data)
+            }
+          }, (error) => {
+            console.error(error);
+          })
+      })
   }
 
 

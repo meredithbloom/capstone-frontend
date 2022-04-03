@@ -23,7 +23,8 @@ const Login = (props) => {
     const [errorMessage, setErrorMessage] = useState("")
     //const [loggedUser, setLoggedUser] = useState({email, password})
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         let loggedUser = { 
             username: username,
             password: password
@@ -32,17 +33,21 @@ const Login = (props) => {
         props.handleLogin(loggedUser)
     }
 
+    let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); 
 
     return (
         <div>
             <div className="logindiv">
-            <h2>Log In</h2>
-            <br/><br/>
-            <input className="inputs" type="text" name="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <br/><br/>
-            <input className="inputs" type="password" name="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            <br /><br/>
-            <button className="btn" onClick={(e) => handleSubmit()}>Log In</button>
+                <h2>Log In</h2>
+                <br /><br />
+                <form onSubmit={handleSubmit}>
+                    <input className="inputs" type="text" name="username" placeholder="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                    <br/><br/>
+                    <input className="inputs" type="password" name="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <br /><br />
+                    <input type="hidden" name="_token" value={token}/>
+                    <input type='submit' value='login'/>
+                </form>
             </div>
             
             {toggleError ? (
