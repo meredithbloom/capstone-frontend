@@ -19,6 +19,7 @@ import MiniGames from './components/minigame'
 import Register from './components/register';
 import Login from './components/login';
 import axios from 'axios'
+import Reviews from './components/allreviews';
 
 const App = () => {
 
@@ -32,6 +33,7 @@ const App = () => {
   const [showGame, setShowGame] = useState(null)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
+  const [reviews, setReviews] = useState()
   //const [gameID, setGameID] = useState(null)
 
 
@@ -71,10 +73,21 @@ const App = () => {
   }
 
 
-
-
-
-
+  //GET REVIEWS (INDEX)
+  const getReviews = () => {
+    axios({
+      url: 'http://localhost:8000/api/reviews',
+      method: 'get'
+    }).then((response) => {
+      if (response.data[0].id) {
+        //console.log(response.data)
+        setReviews(response.data)
+        //console.log(reviews)
+      } else {
+        console.log(response.data)
+      }
+    })
+  }
 
 
 
@@ -119,6 +132,7 @@ const App = () => {
 
   useEffect(() => {
     getGames()
+    getReviews()
     
   }, [])
 
@@ -127,7 +141,7 @@ const App = () => {
     <>
       <div className="nav">
       <Sidebar/>
-      <h1>appname</h1>
+      <h1>PLAY3D</h1>
       </div>
       <Routes>
         <Route index element={<Home />} />
@@ -152,6 +166,9 @@ const App = () => {
             //gameID={gameID}
           />}
         />
+        <Route path="reviews" element={<Reviews
+          getReviews={getReviews}
+          reviews={reviews} />} />
         <Route path="play" element={<MiniGames />}/>
       </Routes>
     </>
