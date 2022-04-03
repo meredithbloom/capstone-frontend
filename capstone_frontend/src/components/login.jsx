@@ -38,11 +38,7 @@ const Login = (props) => {
             <div className="logindiv">
             <h2>Log In</h2>
             <br/><br/>
-<<<<<<< HEAD
             <input className="inputs" type="text" name="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-=======
-            <input type="text" name="username" placeholder="username" value={username} onChange={(e) => setUsername(e.target.value)} />
->>>>>>> 606908ca96b8d2ef5a7239c0351f972060851f43
             <br/><br/>
             <input className="inputs" type="password" name="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             <br /><br/>

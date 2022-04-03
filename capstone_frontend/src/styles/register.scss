@@ -1,0 +1,11 @@
+@import "../variables/variables.scss";
+
+.registerDiv {
+    margin: 0 auto;
+}
+.inputs {
+    @include inputStyle();
+}
+.btn {
+    @include buttonStyle($color1, 20px)
+}
