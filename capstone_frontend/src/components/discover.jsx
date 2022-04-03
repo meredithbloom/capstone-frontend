@@ -11,15 +11,19 @@ const Discover = (props) => {
     const [games, setGames] = useState({})
     const [toggleGames, setToggleGames] = useState(false)
     const [gameID, setGameID] = useState(null)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [errorMessage, setErrorMessage] = useState("")
+    const [toggleError, setToggleError] = useState(false)
 
-    const getGames = () => {
+    const getGames = (currentPage) => {
          axios({
             url: '/games',
             method: 'get',
             baseURL: BASE_URL,
             params: {
                 key: API_KEY,
-                page_size: 5,
+                page_size: 10,
+                page: currentPage
             }
         }).then((response) => {
             setGames(response.data.results)
@@ -30,6 +34,21 @@ const Discover = (props) => {
         })
     }
     
+
+    const prevPage = (e) => {
+        if (currentPage > 1) {
+            setCurrentPage((currentPage) => currentPage - 1)
+            getGames(currentPage)
+        } else {
+            setToggleError(true)
+            setErrorMessage("Sorry, no previous page.")
+        }
+    }
+
+    const nextPage = (e) => {
+        setCurrentPage((currentPage) => currentPage + 1)
+        getGames(currentPage)
+    }
 
     useEffect(() => {
         getGames()
@@ -58,6 +77,12 @@ const Discover = (props) => {
                         )
                     })}
                     </div>
+                    <button onClick={ () => {
+                        prevPage()
+                    }}>Back</button>
+                    <button onClick={() => {
+                        nextPage()
+                    }}>Next</button>
                 </>
             ) : (
                     null

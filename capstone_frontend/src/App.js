@@ -115,7 +115,9 @@ const App = () => {
     })
   }
 
-
+  const getUser = () => {
+    
+  }
 
   // GET - general games 
   const getGames = () => {
