@@ -16,7 +16,7 @@ import axios from 'axios';
 
 const Login = (props) => {
 
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [currentUser, setCurrentUser] = useState({})
     const [toggleError, setToggleError] = useState(false)
@@ -25,7 +25,7 @@ const Login = (props) => {
 
     const handleSubmit = () => {
         let loggedUser = { 
-            email: email,
+            username: username,
             password: password
         };
         console.log(loggedUser)
@@ -37,7 +37,7 @@ const Login = (props) => {
         <div>
             <h2>Log In</h2>
             <br/><br/>
-            <input type="text" name="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input type="text" name="username" placeholder="username" value={username} onChange={(e) => setUsername(e.target.value)} />
             <br/><br/>
             <input type="password" name="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             <br /><br/>

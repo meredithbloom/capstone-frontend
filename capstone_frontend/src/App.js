@@ -141,7 +141,7 @@ const App = () => {
     <>
       <div className="nav">
       <Sidebar/>
-      <h1>appname</h1>
+      <h1>PLAY3D</h1>
       </div>
       <Routes>
         <Route index element={<Home />} />
