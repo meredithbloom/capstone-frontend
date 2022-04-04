@@ -126,8 +126,8 @@ const Game = (props) => {
               null
           )}
     </>
-    ) : (
-      null
+      ) : (   
+      <p>loading...</p>
     )}
   </>
   )

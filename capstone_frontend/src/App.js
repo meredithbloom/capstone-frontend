@@ -21,6 +21,7 @@ import Register from './components/register';
 import Login from './components/login';
 import axios from 'axios'
 import Reviews from './components/allreviews';
+import Review from './components/review'
 
 const App = () => {
 
@@ -215,6 +216,14 @@ const App = () => {
           />}
         />
         <Route path="reviews" element={<Reviews
+          getReviews={getReviews}
+          reviews={reviews}
+          isAuthenticated={isAuthenticated}
+          currentUser={currentUser}
+          getGames={getGames}
+          handleGameDetails={handleGameDetails}
+        />} />
+        <Route path="reviews/:reviewID" element={<Review
           getReviews={getReviews}
           reviews={reviews}
           isAuthenticated={isAuthenticated}

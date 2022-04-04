@@ -8,7 +8,7 @@ import Sidebar from './sidebar'
 
 const Profile = (props) => {
     const [currentUser, setCurrentUser] = useState(props.currentUser)
-
+    
 
 
 

@@ -27,7 +27,7 @@ const Discover = (props) => {
             baseURL: BASE_URL,
             params: {
                 key: API_KEY,
-                page_size: 10,
+                page_size: 20,
                 page: currentPage
             }
         }).then((response) => {
@@ -39,6 +39,10 @@ const Discover = (props) => {
         })
     }
     
+
+    const gameSearch = (input) => {
+
+    }
 
     // const prevPage = (e) => {
     //     if (currentPage > 1) {
@@ -91,16 +95,6 @@ const Discover = (props) => {
                         )
                     })}
                     </div>
-                    <ReactPaginate
-                        previousLabel={'previous'}
-                        nextLabel={'next'}
-                        breakLabel={'...'}
-                        pageCount={25}
-                        marginPagesDisplayed={3}
-                        pageRangeDisplayed={3}
-                        onPageChange={handlePageClick}
-
-                    />
                 </>
             ) : (
                     null
