@@ -15,12 +15,14 @@
   color: #C41E3D;
   outline: none;
   border-radius: 5px;
+  font-style: "Teko", sans-serif;
 }
 
 .btn {
   background-color: #C41E3D;
   padding: 5px;
   font-size: 20px;
+  font-family: "Teko", sans-serif;
   color: #FFF;
   border-radius: 100%;
   -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
