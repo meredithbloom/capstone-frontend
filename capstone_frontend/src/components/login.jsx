@@ -29,7 +29,7 @@ const Login = (props) => {
             username: username,
             password: password
         };
-        console.log(loggedUser)
+        //console.log(loggedUser)
         props.handleLogin(loggedUser)
     }
 

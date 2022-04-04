@@ -6,7 +6,14 @@ import Sidebar from './sidebar'
 
 const Home = (props) => {
     return (
-        <></>
+        <>
+            {props.isAuthenticated ? (
+                <h5>Welcome back, {props.currentUser.user.username}!</h5>
+            ) : (
+                <h5>Welcome!</h5>
+            )}
+            
+        </>
    )
 
 

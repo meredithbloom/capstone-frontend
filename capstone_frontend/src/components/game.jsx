@@ -3,16 +3,20 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { AiFillStar } from 'react-icons/ai'
-
+import NewReview from './add-review'
 
 
 const Game = (props) => {
   const API_KEY = "5a0fda4695714f4fbe032f2e92aca709"
   const BASE_URL = 'https://api.rawg.io/api'
+  const BEARER_TOKEN = props.currentUser.token
   let params = useParams();
   const [gameID, setGameID] = useState(parseInt(params.gameId, 10));
   const [game, setGame] = useState(null)
   const [platform, setPlatform] = useState(null)
+
+  const [toggleReview, setToggleReview] = useState(false)
+
 
   const getGame = (gameID) => {
     axios({
@@ -29,6 +33,31 @@ const Game = (props) => {
       //setGameID(response.data.id)
 
     })
+  }
+
+  const handleCreateReview = (newReview) => {
+    console.log(newReview)
+    axios({
+      url: 'http://localhost:8000/api/reviews',
+      method: 'post',
+      headers: {
+        'Authorization': 'Bearer ' + BEARER_TOKEN,
+        'Accept':'application/json'
+      },
+      data: newReview
+    })
+      .then((response) => {
+        console.log(response)
+      })
+  }
+
+
+  const toggleReviewForm = () => {
+    if (toggleReview) {
+      setToggleReview(false)
+    } else {
+      setToggleReview(true)
+    }
   }
 
   useEffect(() => {
@@ -73,7 +102,25 @@ const Game = (props) => {
                 })}
               </ul>
           </div>
-        </div>
+          </div>
+          {props.isAuthenticated ? (
+            <button className="btn" onClick={toggleReviewForm}>Write a review?</button>
+          ) : (
+              null
+          )}
+          
+          {toggleReview ? (
+            <>
+              <NewReview
+                game={game}
+                handleCreateReview={handleCreateReview}
+                currentUser={props.currentUser}
+                isAuthenticated={props.isAuthenticated}
+              />
+            </>
+          ): (
+              null
+          )}
     </>
     ) : (
       null

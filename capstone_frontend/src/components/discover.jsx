@@ -3,6 +3,7 @@ import axios from 'axios'
 import { BrowserRouter, Routes, Route, Link, Outlet, NavLink } from 'react-router-dom'
 import Sidebar from './sidebar'
 import '../styles/discover.css'
+import ReactPaginate from 'react-paginate'
 
 const Discover = (props) => {
     const API_KEY = "5a0fda4695714f4fbe032f2e92aca709"
@@ -14,6 +15,10 @@ const Discover = (props) => {
     const [currentPage, setCurrentPage] = useState(1)
     const [errorMessage, setErrorMessage] = useState("")
     const [toggleError, setToggleError] = useState(false)
+    const [items, setItems] = useState([])
+    
+    //let currentPage = 1;
+
 
     const getGames = (currentPage) => {
          axios({
@@ -35,20 +40,29 @@ const Discover = (props) => {
     }
     
 
-    const prevPage = (e) => {
-        if (currentPage > 1) {
-            setCurrentPage((currentPage) => currentPage - 1)
-            getGames(currentPage)
-        } else {
-            setToggleError(true)
-            setErrorMessage("Sorry, no previous page.")
-        }
+    // const prevPage = (e) => {
+    //     if (currentPage > 1) {
+    //         setCurrentPage((currentPage) => currentPage - 1)
+    //         getGames(currentPage)
+    //     } else {
+    //         setToggleError(true)
+    //         setErrorMessage("Sorry, no previous page.")
+    //     }
+    // }
+
+    // const nextPage = (e) => {
+    //     setCurrentPage((currentPage) => currentPage + 1)
+    //     getGames(currentPage)
+    // }
+
+   
+    const handlePageClick = (data) => {
+        console.log(data.selected)
+        setCurrentPage(data.selected + 1)
+        const currentPageGames = getGames(currentPage);
+        setGames(currentPageGames)
     }
 
-    const nextPage = (e) => {
-        setCurrentPage((currentPage) => currentPage + 1)
-        getGames(currentPage)
-    }
 
     useEffect(() => {
         getGames()
@@ -77,12 +91,16 @@ const Discover = (props) => {
                         )
                     })}
                     </div>
-                    <button onClick={ () => {
-                        prevPage()
-                    }}>Back</button>
-                    <button onClick={() => {
-                        nextPage()
-                    }}>Next</button>
+                    <ReactPaginate
+                        previousLabel={'previous'}
+                        nextLabel={'next'}
+                        breakLabel={'...'}
+                        pageCount={25}
+                        marginPagesDisplayed={3}
+                        pageRangeDisplayed={3}
+                        onPageChange={handlePageClick}
+
+                    />
                 </>
             ) : (
                     null

@@ -50,7 +50,7 @@ const App = () => {
           method: 'post',
           headers:  {
             "Content-Type": "application/json",
-            "Accept": "application/json, text-plain",
+            "Accept": "application/json",
             "X-Requested-With": "XMLHttpRequest"
           },
           data: newUser
@@ -58,6 +58,7 @@ const App = () => {
         .then(
           (response) => {
             console.log(response.data);
+            navigate('/login')
           }, (error) => {
             console.error(error);
           })
@@ -66,7 +67,7 @@ const App = () => {
 
   //POST - LOGIN USER
   const handleLogin = (loggedUser) => {
-    //console.log(loggedUser)
+    //axios.defaults.withCredentials = true
     axios.get('http://localhost:8000/sanctum/csrf-cookie')
       .then((response) => {
         axios({
@@ -74,7 +75,7 @@ const App = () => {
           method: 'post',
           headers:  {
             "Content-Type": "application/json",
-            "Accept": "application/json, text-plain",
+            "Accept": "application/json",
             "X-Requested-With": "XMLHttpRequest"
           },
           data: loggedUser
@@ -83,7 +84,7 @@ const App = () => {
           (response) => {
             if (response.data.token) {
               setIsAuthenticated(true)
-              setCurrentUser(response.data.user)
+              setCurrentUser(response.data)
               setToggleError(false)
               setToggleLogin(false)
               setToggleLogout(true)
@@ -98,6 +99,7 @@ const App = () => {
       })
   }
 
+  
 
   //GET REVIEWS (INDEX)
   const getReviews = () => {
@@ -168,11 +170,14 @@ const App = () => {
   return (
     <>
       <div className="nav">
-      <Sidebar/>
+        <Sidebar/>
       <h1>PLAY3D</h1>
       </div>
       <Routes>
-        <Route index element={<Home />} />
+        <Route index element={<Home
+          currentUser={currentUser}
+          isAuthenticated={isAuthenticated}
+        />} />
         <Route path="register"
           element={<Register
           handleSignUp={handleSignUp}
@@ -186,17 +191,24 @@ const App = () => {
           element={<Discover
             getGames={getGames}
             handleGameDetails={handleGameDetails}
+            isAuthenticated={isAuthenticated}
+            currentUser={currentUser}
           />}/>
         <Route path="games/:gameId"
           element={<Game
             handleGameDetails={handleGameDetails}
+            isAuthenticated={isAuthenticated}
+            currentUser={currentUser}
             //showGame={showGame}
             //gameID={gameID}
           />}
         />
         <Route path="reviews" element={<Reviews
           getReviews={getReviews}
-          reviews={reviews} />} />
+          reviews={reviews}
+          isAuthenticated={isAuthenticated}
+          currentUser={currentUser}
+        />} />
         <Route path="play" element={<MiniGames />}/>
       </Routes>
     </>

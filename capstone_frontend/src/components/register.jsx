@@ -41,6 +41,8 @@ const Register = (props) => {
     
     return (
         <div className='registerDiv'>
+           
+
             <h1>Register</h1>
             <br /><br />
             <form onSubmit={handleSubmit}>
@@ -57,7 +59,10 @@ const Register = (props) => {
                 <input type="hidden" name="_token" value={token}/>
                 <button className='btn' type='submit'>Sign Up</button>
                 <br/>
-            </form>        
+            </form><br/>
+             <Link to="/login">
+                <button className="btn">Already have an account?</button>
+            </Link>
         </div>
     )
 

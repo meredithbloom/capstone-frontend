@@ -14,6 +14,7 @@ const Reviews = (props) => {
 
     return (
         <>
+            <h5>Recent Reviews</h5>
             {props.reviews ? (
                 <>
                     {props.reviews.map((review) => {
