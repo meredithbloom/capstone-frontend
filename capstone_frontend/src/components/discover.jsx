@@ -76,10 +76,10 @@ const Discover = (props) => {
                 <div className="discgrid">
                     {games.map((game) => {
                         return (
-                            <div key={game.id}>
+                            <div className="gameCard" key={game.id}>
                                 
                                 <Link to={`${game.id}`}>
-                                    <div
+                                    <div 
                                         onClick={() => { setGameID(game.id) }}>
                                         <img src={game.background_image}/>
                                         

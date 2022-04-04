@@ -51,7 +51,7 @@
   background: rgba(0, 0, 0, 0.3);
 }
 
-h1 {
+.logo {
   font-family: "VT323", monospace;
   font-size: 40px;
   color: #FFB627;
@@ -59,6 +59,7 @@ h1 {
   position: absolute;
   margin: 0 auto;
   right: 100px;
+  top: 10px;
 }
 
 .nav {
@@ -82,46 +83,20 @@ h1 {
     color: #662C91;
     text-shadow: 2px 2px 0 #C41E3D;
   }
-  h1 {
+  .logo {
     top: 10px;
     right: 40px;
     font-size: 50px;
   }
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
-  h1 {
-    font-size: 70px;
+@media (max-width: 7000px) {
+  .logo {
+    font-size: 90px;
     position: absolute;
     margin: 0 auto;
     right: 100px;
-  }
-  .bm-item {
-    font-family: "Oswald", sans-serif;
-    color: #C41E3D;
-    font-size: 40px;
-    text-shadow: 2px 2px 0 #662C91;
-    text-decoration: none;
-  }
-  .bm-item:hover {
-    color: #662C91;
-    text-shadow: 2px 2px 0 #C41E3D;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  h1 {
-    font-size: 100px;
-  }
-}
-
-@media (min-width: 1025px) {
-  h1 {
-    font-size: 100px;
-    position: absolute;
-    margin: 0 auto;
-    right: 100px;
-    top: -30px;
+    top: -10px;
   }
   .bm-item {
     font-family: "Oswald", sans-serif;

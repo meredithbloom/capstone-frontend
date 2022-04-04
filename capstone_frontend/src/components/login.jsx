@@ -46,7 +46,7 @@ const Login = (props) => {
                     <input className="inputs" type="password" name="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     <br /><br />
                     <input type="hidden" name="_token" value={token}/>
-                    <input type='submit' value='login'/>
+                    <input className="btn" type='submit' value='login'/>
                 </form>
             </div>
             

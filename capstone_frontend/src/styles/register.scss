@@ -9,3 +9,8 @@
 .btn {
     @include buttonStyle($color1, 20px)
 }
+h2 {
+    font-family: $font3;
+    color: $color4;
+    margin-top: 20px;
+}

@@ -43,7 +43,7 @@ const Register = (props) => {
         <div className='registerDiv'>
            
 
-            <h1>Register</h1>
+            <h2>Register</h2>
             <br /><br />
             <form onSubmit={handleSubmit}>
                 <input className='inputs' type="text" name="name" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} />

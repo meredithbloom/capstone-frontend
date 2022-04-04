@@ -53,11 +53,12 @@
   background: rgba(0, 0, 0, 0.3);
 }
 
-h1 {
+.logo {
   @include logoStyle();
   position: absolute;
   margin: 0 auto;
   right: 100px;
+  top: 10px;
 }
 .nav {
   width: 100%;
@@ -71,37 +72,22 @@ h1 {
   .bm-item {
     @include linkStyle($color1, $color2, 30px);
   }
-  h1 {
+  .logo {
     top: 10px;  
     right: 40px;
     font-size: 50px;
   }
 
 }
-@media (min-width: 481px) and (max-width: 768px) {
-  h1 {
-    font-size: 70px;
-    position: absolute;
-    margin: 0 auto;
-    right: 100px;
-  }
-  .bm-item {
-    @include linkStyle($color1, $color2, 40px);
-  }
-}
-@media (min-width: 769px) and (max-width: 1024px) {
-  h1 {
-    font-size: 100px;
-  }
 
-}
-@media (min-width: 1025px) {
-  h1 {
-    font-size: 100px;
+
+@media (max-width: 7000px) {
+  .logo {
+    font-size: 90px;
     position: absolute;
     margin: 0 auto;
     right: 100px;
-    top: -30px;
+    top: -10px;
   }
   .bm-item {
     @include linkStyle($color1, $color2, 40px);

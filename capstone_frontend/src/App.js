@@ -10,7 +10,7 @@ import {
   useNavigate
 } from 'react-router-dom';
 
-import './styles/sidebar.css' 
+
 import Sidebar from './components/sidebar'
 import Game from './components/game'
 import Home from './components/home'
@@ -171,7 +171,7 @@ const App = () => {
     <>
       <div className="nav">
         <Sidebar/>
-      <h1>PLAY3D</h1>
+       <h1 className="logo">PLAY3D</h1>
       </div>
       <Routes>
         <Route index element={<Home

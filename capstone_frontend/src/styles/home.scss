@@ -3,9 +3,6 @@
 body {
     margin: 30px;
 }
-h1 {
-    @include logoStyle()
-}
 a {
     @include linkStyle($color1, $color4, 20px)
 }
