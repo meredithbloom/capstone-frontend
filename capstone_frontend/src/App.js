@@ -35,6 +35,7 @@ const App = () => {
   const [showGame, setShowGame] = useState(null)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
+  const [userDetails, setUserDetails] = useState(null)
   const [reviews, setReviews] = useState()
   let navigate = useNavigate()
   //const [gameID, setGameID] = useState(null)
@@ -100,7 +101,6 @@ const App = () => {
   }
 
   
-
   //GET REVIEWS (INDEX)
   const getReviews = () => {
     axios({
@@ -118,7 +118,20 @@ const App = () => {
   }
 
   const getUser = () => {
-    
+    let token = currentUser.token
+    axios({
+      url: '/users/' + currentUser.user.id,
+      method: 'get',
+      headers: {
+        'Authorization': 'Bearer ' + token,
+        'Accept':'application/json'
+      }
+    }).then((response) => {
+      console.log(response)
+      //console.log(response.data)
+      //setGameID(response.data.id)
+
+    })
   }
 
   // GET - general games 
@@ -129,12 +142,10 @@ const App = () => {
       baseURL: BASE_URL,
       params: {
         key: API_KEY,
-        page_size: 5
+        page_size: 15
        }
     }).then((response) => {
       setGames(response.data.results)
-      //setShowGame(response.data.results[0].id)
-      //console.log(showGame)
       console.log(games)
     }).catch((error) => {
       console.error(error)
@@ -208,6 +219,8 @@ const App = () => {
           reviews={reviews}
           isAuthenticated={isAuthenticated}
           currentUser={currentUser}
+          getGames={getGames}
+          handleGameDetails={handleGameDetails}
         />} />
         <Route path="play" element={<MiniGames />}/>
       </Routes>

@@ -24,7 +24,11 @@ const NewReview = (props) => {
         body: '',
         rating: '',
         game: game.name,
-        slug: game.name
+        slug: game.name,
+        game_id: game.id,
+        author_id: props.currentUser.user.id,
+        game_cover: game.background_image,
+        author_username: props.currentUser.user.username
     }
     const [newReview, setNewReview] = useState(emptyReview)
 
@@ -39,16 +43,19 @@ const NewReview = (props) => {
         e.preventDefault()
         console.log(newReview)
         props.handleCreateReview(newReview)
+        setNewReview(emptyReview)
+        
     }
 
 
     return (
         <>
             <form onSubmit={handleSubmit}>
+                <br/>
                 <h5>Leave a Review</h5>
-                <h5>{game.name}</h5>
+                <h2>{game.name}</h2>
                             
-                <label id="title"><h5>title:</h5></label><br/>
+                <label id="title"></label><br/>
                 <input
                     className="inputs"
                     type="text"

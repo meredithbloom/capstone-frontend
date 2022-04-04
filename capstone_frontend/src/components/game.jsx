@@ -16,6 +16,7 @@ const Game = (props) => {
   const [platform, setPlatform] = useState(null)
 
   const [toggleReview, setToggleReview] = useState(false)
+  const [successMessage, setSuccessMessage] = useState(null)
 
 
   const getGame = (gameID) => {
@@ -48,6 +49,8 @@ const Game = (props) => {
     })
       .then((response) => {
         console.log(response)
+        setToggleReview(false)
+        setSuccessMessage('Thanks for leaving a review.')
       })
   }
 
@@ -102,8 +105,9 @@ const Game = (props) => {
                 })}
               </ul>
           </div>
-          </div>
+          </div><br/><br/><br/>
           {props.isAuthenticated ? (
+
             <button className="btn" onClick={toggleReviewForm}>Write a review?</button>
           ) : (
               null
