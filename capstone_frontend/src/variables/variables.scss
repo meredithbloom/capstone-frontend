@@ -2,6 +2,7 @@
 $font1: 'VT323', monospace;
 $font2: 'Bebas Neue', cursive;
 $font3: 'Oswald', sans-serif;
+$font4: 'Teko', sans-serif;
 //COLORS
 $color1: #C41E3D;
 $color2: #662C91;
@@ -16,7 +17,8 @@ $color6: #252525;
     
     padding: 5px;
     font-size: $size;
-    color: #FFF;
+    font-family: $font4;
+    color: #000;
     border-radius: 100%;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     &:hover {
@@ -75,4 +77,5 @@ $color6: #252525;
   color: $color1;
   outline: none;
   border-radius: 5px;
+  font-style: $font4;
 }
