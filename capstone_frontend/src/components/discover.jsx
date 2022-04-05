@@ -6,6 +6,7 @@ import '../styles/discover.css'
 //import ReactPaginate from 'react-paginate'
 import Search from './search'
 
+
 const Discover = (props) => {
     const API_KEY = "5a0fda4695714f4fbe032f2e92aca709"
     const BASE_URL = 'https://api.rawg.io/api'
