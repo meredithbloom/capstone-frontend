@@ -35,6 +35,7 @@ const Register = (props) => {
 
     //let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); 
     
+    
     return (
         <div className='registerDiv'>
            
