@@ -5,7 +5,7 @@ import './styles/sidebar.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Game from './components/game'
+//import Game from './components/game'
 
 
 const rootElement = document.getElementById('root')

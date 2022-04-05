@@ -12,8 +12,8 @@ const Discover = (props) => {
 
     const [games, setGames] = useState({})
     const [toggleGames, setToggleGames] = useState(false)
-    const [gameID, setGameID] = useState(null)
-    const [currentPage, setCurrentPage] = useState(1)
+    //const [gameID, setGameID] = useState(null)
+    //const [currentPage, setCurrentPage] = useState(1)
     //const [errorMessage, setErrorMessage] = useState("")
     //const [toggleError, setToggleError] = useState(false)
     //const [items, setItems] = useState([])
@@ -80,22 +80,20 @@ const Discover = (props) => {
     let queryGames = false;
     if (search.length > 0) {
         queryGames = true;
-    } else {
-        queryGames = false;
     }
     
    
-    const handlePageClick = (data) => {
-        console.log(data.selected)
-        setCurrentPage(data.selected + 1)
-        const currentPageGames = getGames(currentPage);
-        setGames(currentPageGames)
-    }
+    // const handlePageClick = (data) => {
+    //     console.log(data.selected)
+    //     setCurrentPage(data.selected + 1)
+    //     const currentPageGames = getGames(currentPage);
+    //     setGames(currentPageGames)
+    // }
 
 
     useEffect(() => {
         getGames()
-    }, [])
+    }, [games])
 
 
     return (
@@ -123,7 +121,7 @@ const Discover = (props) => {
                                 <div className="gameCard" key={game.id}>
                                     <Link to={`${game.id}`}>
                                         <div id={game.name + game.id}>
-                                            <img src={game.background_image} alt='game image'/>  
+                                            <img src={game.background_image} alt='game cover'/>  
                                         </div>
                                     </Link>
                                     <h5>{game.name}</h5>

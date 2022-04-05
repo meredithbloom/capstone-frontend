@@ -75,7 +75,7 @@ const Game = (props) => {
         <>
         <div className="gamediv">
           <h5>{game.name}</h5>
-          <img src={game.background_image} alt='game image'/>
+          <img src={game.background_image} alt='game cover'/>
         <div className="gameinfo">
           <ul>
             <li>{[game.rating]}<AiFillStar /></li>

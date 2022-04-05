@@ -11,23 +11,23 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 
 const NewReview = (props) => {
-    const params = useParams();
-    let navigate = useNavigate();
+    //const params = useParams();
+    //let navigate = useNavigate();
 
     //const [title, setTitle] = useState("");
     //const [body, setBody] = useState("");
-    const [game, setGame] = useState(props.game)
+    //const [game, setGame] = useState(props.game)
     //const [rating, setRating] = useState("")
     
     let emptyReview = {
         title: '',
         body: '',
         rating: '',
-        game: game.name,
-        slug: game.name,
-        game_id: game.id,
+        game: props.game.name,
+        slug: props.game.name,
+        game_id: props.game.id,
         author_id: props.currentUser.user.id,
-        game_cover: game.background_image,
+        game_cover: props.game.background_image,
         author_username: props.currentUser.user.username
     }
     const [newReview, setNewReview] = useState(emptyReview)

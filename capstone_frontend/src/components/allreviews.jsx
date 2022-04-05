@@ -16,7 +16,7 @@ const Reviews = (props) => {
 
     useEffect(() => {
         props.getReviews();
-    }, [])
+    }, [props])
 
     
 
