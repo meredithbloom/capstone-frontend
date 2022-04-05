@@ -1,12 +1,12 @@
 import {useState, useEffect} from 'react'
-//import axios from 'axios'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 //import Sidebar from './sidebar'
 import '../styles/review.css'
 //import Review from './review'
 
 const Reviews = (props) => {
-    //const [reviews, setReviews] = useState(props.reviews)
+    const [reviews, setReviews] = useState(null)
     //const API_KEY = "5a0fda4695714f4fbe032f2e92aca709"
     //const BASE_URL = 'https://api.rawg.io/api'
     //const BEARER_TOKEN = props.currentUser.token
@@ -14,9 +14,26 @@ const Reviews = (props) => {
     console.log(reviewID)
 
 
+    //GET REVIEWS (INDEX)
+    const getReviews = () => {
+        axios({
+        url: 'http://localhost:8000/api/reviews',
+        method: 'get'
+        }).then((response) => {
+        if (response.data[0].id) {
+            //console.log(response.data)
+            setReviews(response.data)
+            //console.log(reviews)
+        } else {
+            console.log(response.data)
+        }
+        })
+    }
+
+
     useEffect(() => {
-        props.getReviews();
-    }, [props])
+        getReviews();
+    }, [])
 
     
 
@@ -25,9 +42,9 @@ const Reviews = (props) => {
     return (
         <>
             <h5>Recent Reviews</h5>
-            {props.reviews ? (
+            {reviews ? (
                 <>
-                    {props.reviews.map((review) => {
+                    {reviews.map((review) => {
                         return (
                             <div id={review.id}>
                                 <h2 onClick={() => {
@@ -37,7 +54,7 @@ const Reviews = (props) => {
                                         {review.game}
                                     </Link>
                                 </h2>
-                                <Link to={`games/${review.game_id}`}>
+                                <Link to={`${review.game_id}`}>
                                     <div>
                                         <img src={review.game_cover} alt='review cover'/>
                                     </div>

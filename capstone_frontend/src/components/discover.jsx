@@ -94,7 +94,7 @@ const Discover = (props) => {
 
     useEffect(() => {
         getGames()
-    })
+    },[])
 
 
     return (

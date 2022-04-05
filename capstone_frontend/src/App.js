@@ -174,7 +174,7 @@ const App = () => {
   useEffect(() => {
     getGames()
     getReviews()
-  })
+  },[])
 
 
   return (
