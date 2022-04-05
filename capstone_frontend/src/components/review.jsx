@@ -31,7 +31,7 @@ const Review = (props) => {
 
     const getReview = (reviewId) => {
         axios
-            .get(`http://localhost:8000/api/reviews/${reviewId}`)
+            .get(`https://play3d-backend.herokuapp.com/api/reviews/${reviewId}`)
             .then((response) => {
                 console.log(response.data)
                 setReview(response.data)
@@ -43,7 +43,7 @@ const Review = (props) => {
     const handleDelete = (event) => {
         event.preventDefault();
         axios
-            .delete(`http://localhost:8000/api/reviews/${reviewId}`, {
+            .delete(`https://play3d-backend.herokuapp.com/api/reviews/${reviewId}`, {
                 headers: {
                     "Auhorization": "Bearer " + BEARER_TOKEN,
                     "Accept": "application/json",

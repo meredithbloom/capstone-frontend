@@ -17,7 +17,7 @@ const Reviews = (props) => {
     //GET REVIEWS (INDEX)
     const getReviews = () => {
         axios({
-        url: 'http://localhost:8000/api/reviews',
+        url: 'https://play3d-backend.herokuapp.com/api/reviews',
         method: 'get'
         }).then((response) => {
         if (response.data[0].id) {

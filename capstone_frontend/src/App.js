@@ -66,10 +66,10 @@ const App = () => {
   //POST - LOGIN USER
   const handleLogin = (loggedUser) => {
     //axios.defaults.withCredentials = true
-    axios.get('http://localhost:8000/sanctum/csrf-cookie')
+    axios.get('https://play3d-backend.herokuapp.com/sanctum/csrf-cookie')
       .then((response) => {
         axios({
-          url: 'http://localhost:8000/api/login',
+          url: 'https://play3d-backend.herokuapp.com/api/login',
           method: 'post',
           headers:  {
             "Content-Type": "application/json",
@@ -101,7 +101,7 @@ const App = () => {
   //GET REVIEWS (INDEX)
   const getReviews = () => {
     axios({
-      url: 'http://localhost:8000/api/reviews',
+      url: 'https://play3d-backend.herokuapp.com/api/reviews',
       method: 'get'
     }).then((response) => {
       if (response.data[0].id) {
@@ -174,7 +174,7 @@ const App = () => {
   useEffect(() => {
     getGames()
     getReviews()
-  },[])
+  },[getGames, getReviews])
 
 
   return (

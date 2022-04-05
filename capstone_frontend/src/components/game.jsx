@@ -40,7 +40,7 @@ const Game = (props) => {
   const handleCreateReview = (newReview) => {
     console.log(newReview)
     axios({
-      url: 'http://localhost:8000/api/reviews',
+      url: 'https://play3d-backend.herokuapp.com/api/reviews',
       method: 'post',
       headers: {
         'Authorization': 'Bearer ' + BEARER_TOKEN,
