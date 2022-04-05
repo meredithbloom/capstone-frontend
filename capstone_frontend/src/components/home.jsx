@@ -23,11 +23,21 @@ const Home = (props) => {
                 <>
                     <h5>Welcome back, {props.currentUser.user.username}!</h5>
                     <button className='btn' onClick={triggerLogout}>Logout</button>
-                    <br/>
+                    <br/><br/>
                     <button className='btn' onClick={handleDelete}>Delete Account</button>
                 </>
             ) : (
-                <h5>Welcome!</h5>
+                    <>
+                        <h5>Welcome!</h5>
+                        <Link to='/login'>
+                            <button className='btn'>Login</button>
+                        </Link>
+                        <br /><br/>
+                        <Link to='/register'>
+                            <button className='btn'>Need an account?</button>
+                        </Link>
+                        
+                    </>
             )}
             
         </>

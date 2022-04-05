@@ -48,6 +48,10 @@ const Login = (props) => {
                     <input type="hidden" name="_token" value={token}/>
                     <input className="btn" type='submit' value='login'/>
                 </form>
+                <br/>
+                <Link to='/register'>
+                    <button className='btn'>Need an account?</button>
+                </Link>
             </div>
             
             {toggleError ? (

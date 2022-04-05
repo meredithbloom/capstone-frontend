@@ -280,7 +280,10 @@ const App = () => {
           getGames={getGames}
           handleGameDetails={handleGameDetails}
         />} />
-        <Route path="play" element={<MiniGames />} />
+        <Route path="play" element={<MiniGames
+          isAuthenticated={isAuthenticated}
+          currentUser={currentUser}
+        />} />
       </Routes>
     </>
   )

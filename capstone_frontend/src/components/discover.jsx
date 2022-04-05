@@ -113,7 +113,7 @@ const Discover = (props) => {
                                     setSearchString(event.target.value)
                                 }}
                             /><br/>
-                            <input type='submit' value='search'/>
+                            <input className='btn' type='submit' value='search'/>
                         </form>
                         <Search search={search}/>
                     </div>

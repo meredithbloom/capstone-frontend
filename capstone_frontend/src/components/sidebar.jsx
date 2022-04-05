@@ -10,29 +10,15 @@ export default props => {
       <Link className="menu-item" to="/">
         Home
       </Link>
-      
       <Link className="menu-item" to="/games">
         Discover
       </Link>
-
       <Link className="menu-item" to="/reviews">
         Reviews
-      </Link>
-      <Link className="menu-item" to="/profile">
-        Profile
       </Link>
       <Link className="menu-item" to="/play">
         Play
       </Link>
-      <Link className="menu-item" to="/register">
-        Register
-      </Link>
-      <Link className="menu-item" to="/login">
-        Login
-      </Link>
-       <Link className='menu-item' to='/logout'>
-          Logout
-        </Link>
     </Menu>
   );
 };
