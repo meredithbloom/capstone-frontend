@@ -32,7 +32,7 @@ const Game = (props) => {
       setPlatform(response.data.platforms[0].name)
       console.log(platform)
       console.log(response.data)
-      //setGameID(response.data.id)
+      setGameID(response.data.id)
 
     })
   }
@@ -67,7 +67,7 @@ const Game = (props) => {
 
   useEffect(() => {
     getGame(gameID)
-  }, [])
+  })
 
   return (
     <>

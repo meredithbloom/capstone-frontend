@@ -78,10 +78,10 @@ const Discover = (props) => {
     //     getGames(currentPage)
     // }
 
-    let queryGames = false;
-    if (search.length > 0) {
-        queryGames = true;
-    }
+    // let queryGames = false;
+    // if (search.length > 0) {
+    //     queryGames = true;
+    // }
     
    
     // const handlePageClick = (data) => {
@@ -94,7 +94,7 @@ const Discover = (props) => {
 
     useEffect(() => {
         getGames()
-    }, [games])
+    })
 
 
     return (

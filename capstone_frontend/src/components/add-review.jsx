@@ -1,7 +1,7 @@
 import { useState } from 'react'
 //import axios from 'axios'
 import '../styles/review.css'
-import { useNavigate, useParams } from 'react-router-dom'
+//import { useNavigate, useParams } from 'react-router-dom'
 //import Sidebar from './sidebar'
 
 

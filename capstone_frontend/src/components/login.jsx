@@ -19,8 +19,8 @@ const Login = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     //const [currentUser, setCurrentUser] = useState({})
-    const [toggleError, setToggleError] = useState(false)
-    const [errorMessage, setErrorMessage] = useState("")
+    //const [toggleError, setToggleError] = useState(false)
+    //const [errorMessage, setErrorMessage] = useState("")
     //const [loggedUser, setLoggedUser] = useState({email, password})
 
     const handleSubmit = (e) => {
@@ -50,14 +50,7 @@ const Login = (props) => {
                 </form>
             </div>
             
-            {toggleError ? (
-                <p>
-                    {errorMessage}
-                </p>
-            ) : (
-                null
-            )};
-            <br/>
+        
         </div>
     )
 

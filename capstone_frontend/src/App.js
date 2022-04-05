@@ -174,8 +174,7 @@ const App = () => {
   useEffect(() => {
     getGames()
     getReviews()
-    
-  }, [])
+  })
 
 
   return (
@@ -188,6 +187,7 @@ const App = () => {
         <Route index element={<Home
           currentUser={currentUser}
           isAuthenticated={isAuthenticated}
+          getUser={getUser}
         />} />
         <Route path="register"
           element={<Register

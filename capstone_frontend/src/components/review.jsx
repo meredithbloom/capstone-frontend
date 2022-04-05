@@ -13,7 +13,7 @@ import { AiFillStar } from 'react-icons/ai'
 const Review = (props) => {
     const params = useParams();
     const BEARER_TOKEN = props.currentUser.token;
-    const [currentUser, setCurrentUser] = useState(props.currentUser)
+    //const [currentUser, setCurrentUser] = useState(props.currentUser)
     //const [isAuthenticated, setIsAuthenticated] = useState(props.isAuthenticated)
     
     const [reviewId, setReviewId] = useState(parseInt(params.reviewID, 10))
@@ -24,8 +24,8 @@ const Review = (props) => {
     const navigate = useNavigate();
     
     let isAuthor = false;    
-    if (currentUser.user && review) {
-        isAuthor = currentUser.user.username === review.author_username;
+    if (props.currentUser.user && review) {
+        isAuthor = props.currentUser.user.username === review.author_username;
     }
 
 
@@ -35,6 +35,7 @@ const Review = (props) => {
             .then((response) => {
                 console.log(response.data)
                 setReview(response.data)
+                setReviewId(response.data.id)
             })
     }
 
@@ -59,7 +60,7 @@ const Review = (props) => {
 
     useEffect(() => {
         getReview(reviewId)
-    }, [])
+    }, [reviewId])
 
 
     if (!review) {
