@@ -31,7 +31,7 @@ const Review = (props) => {
 
     const getReview = (reviewId) => {
         axios
-            .get(`http://localhost:8000/api/reviews/${reviewId}`)
+            .get(`https://play3d-backend.herokuapp.com/api/reviews/${reviewId}`)
             .then((response) => {
                 console.log(response.data)
                 setReview(response.data)
@@ -42,7 +42,7 @@ const Review = (props) => {
     const handleDelete = (event) => {
         event.preventDefault();
         axios
-            .delete(`http://localhost:8000/api/reviews/${reviewId}`, {
+            .delete(`https://play3d-backend.herokuapp.com/api/reviews/${reviewId}`, {
                 headers: {
                     "Auhorization": "Bearer " + BEARER_TOKEN,
                     "Accept": "application/json",
@@ -67,14 +67,16 @@ const Review = (props) => {
     } else {
         return (
             <>
-                <h5>{review.game}</h5>
+                <h5 className='review-game-title'>{review.game}</h5>
                 <img src={review.game_cover} />
-                <h2>{review.title}</h2>
-                <h2>author: <br/>{review.author_username}</h2>
-                <p>{review.body}</p>
-                <br />
-                <p>rating: <br/>{review.rating} <AiFillStar /></p>
-                <br/><br/>
+                <div className='review-info'>
+                    <h2 className='review-title'>{review.title}</h2>
+                    <p>{review.rating} <AiFillStar /></p>
+                    <h2 className="review-author">by: <span>{review.author_username}</span></h2>
+                    
+                    <p>{review.body}</p>
+                </div>
+                <br/>
                 {isAuthor && (
                     <>
                         <button className='btn'>Edit Review</button>
@@ -83,7 +85,8 @@ const Review = (props) => {
                             Delete Review
                         </button>
                     </>
-                )}        
+                )}
+                    
             </>
         )
     }

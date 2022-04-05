@@ -1,9 +1,23 @@
 @import "../variables/variables.scss";
 
 .rate {
-    float: left;
     height: 46px;
-    padding: 0 10px;
+    padding: 0px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+div.rate {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+}
+
+.review-form {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+    border: .5px solid $color1;
 }
 
 .rate:not(:checked)>input {
@@ -20,6 +34,56 @@
     font-size: 30px;
     color: #ccc;
 }
+
+p {
+    font-family: $font3;
+    color: $color4;
+    margin: 5px 0 5px 0;
+}
+
+span {
+    color: $color4;
+    font-family: $font2;
+}
+
+.reviews-grid {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.review-card {
+    border: .5px solid $color1;
+    margin: 10px;
+    
+}
+
+
+.review-game-title {
+    margin: 10px 0 10px 0;
+}
+
+.review-title {
+    color: $color1;
+    text-decoration: underline;
+    margin: 5px 0 5px 0;
+}
+
+.review-author {
+    margin: 5px 0 5px 0;
+    color: $color1;
+}
+
+.review-info {
+    border: .5px solid $color1;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.review-body {
+    max-width: 250px;
+    margin: 0 auto;
+}
+
 
 .rate:not(:checked)>label:before {
     content: '★ ';

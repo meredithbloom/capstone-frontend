@@ -5,10 +5,27 @@ import Sidebar from './sidebar'
 
 
 const Home = (props) => {
+
+
+    const triggerLogout = (event) => {
+        event.preventDefault()
+        props.handleLogout(props.currentUser)
+    }
+
+    const handleDelete = (event) => {
+        event.preventDefault();
+        props.handleDeleteAccount(props.currentUser)
+    }
+
     return (
         <>
             {props.isAuthenticated ? (
-                <h5>Welcome back, {props.currentUser.user.username}!</h5>
+                <>
+                    <h5>Welcome back, {props.currentUser.user.username}!</h5>
+                    <button className='btn' onClick={triggerLogout}>Logout</button>
+                    <br/>
+                    <button className='btn' onClick={handleDelete}>Delete Account</button>
+                </>
             ) : (
                 <h5>Welcome!</h5>
             )}

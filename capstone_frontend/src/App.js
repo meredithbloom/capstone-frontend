@@ -37,6 +37,7 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
   const [userDetails, setUserDetails] = useState(null)
+  
   const [reviews, setReviews] = useState()
   let navigate = useNavigate()
   //const [gameID, setGameID] = useState(null)
@@ -45,15 +46,16 @@ const App = () => {
   //POST - CREATE USER
   const handleSignUp = (newUser) => {
     //console.log(newUser)
-    axios.get('http://localhost:8000/sanctum/csrf-cookie')
+    axios.get('https://play3d-backend.herokuapp.com/sanctum/csrf-cookie')
       .then((response) => {
         axios({
-          url: 'http://localhost:8000/api/register',
+          url: 'https://play3d-backend.herokuapp.com/api/register',
           method: 'post',
           headers:  {
             "Content-Type": "application/json",
             "Accept": "application/json",
             "X-Requested-With": "XMLHttpRequest"
+            
           },
           data: newUser
         })
@@ -70,15 +72,15 @@ const App = () => {
   //POST - LOGIN USER
   const handleLogin = (loggedUser) => {
     //axios.defaults.withCredentials = true
-    axios.get('http://localhost:8000/sanctum/csrf-cookie')
+    axios.get('https://play3d-backend.herokuapp.com/sanctum/csrf-cookie')
       .then((response) => {
         axios({
-          url: 'http://localhost:8000/api/login',
+          url: 'https://play3d-backend.herokuapp.com/api/login',
           method: 'post',
           headers:  {
             "Content-Type": "application/json",
             "Accept": "application/json",
-            "X-Requested-With": "XMLHttpRequest"
+            "X-Requested-With": "XMLHttpRequest"            
           },
           data: loggedUser
         })
@@ -102,10 +104,54 @@ const App = () => {
   }
 
   
+  const handleLogout = (user) => {
+    console.log(user)
+    axios({
+      url: 'https://play3d-backend.herokuapp.com/api/logout',
+      method: 'post',
+      headers: {
+        'Authorization': 'Bearer ' + user.token,
+        'Accept':'application/json'
+      }
+    }).then((response) => {
+      setIsAuthenticated(false)
+      setCurrentUser({})
+      setToggleLogin(true)
+      setToggleLogout(false)
+      navigate('/login')
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
+
+
+  const handleDeleteAccount = (user) => {
+    console.log(user)
+    axios({
+      url: `https://play3d-backend.herokuapp.com/api/users/${user.id}`,
+      method: 'delete',
+      headers: {
+        'Authorization': 'Bearer ' + user.token,
+        'Accept': 'application/json'
+      }
+    }).then((response) => {
+      console.log(response)
+      setIsAuthenticated(false)
+      setCurrentUser({})
+      setToggleLogin(true)
+      setToggleLogout(false)
+      navigate('/register')
+    }).catch((error) => {
+      console.error(error)
+    })
+  }
+  
+
+
   //GET REVIEWS (INDEX)
   const getReviews = () => {
     axios({
-      url: 'http://localhost:8000/api/reviews',
+      url: 'https://play3d-backend.herokuapp.com/api/reviews',
       method: 'get'
     }).then((response) => {
       if (response.data[0].id) {
@@ -183,12 +229,15 @@ const App = () => {
     <>
       <div className="nav">
         <Sidebar/>
-       <h1 className="logo">PLAY3D</h1>
+        <h1 className="logo">PLAY3D</h1>
+       
       </div>
       <Routes>
         <Route index element={<Home
           currentUser={currentUser}
           isAuthenticated={isAuthenticated}
+          handleLogout={handleLogout}
+          handleDeleteAccount={handleDeleteAccount}
         />} />
         <Route path="register"
           element={<Register
@@ -231,7 +280,7 @@ const App = () => {
           getGames={getGames}
           handleGameDetails={handleGameDetails}
         />} />
-        <Route path="play" element={<MiniGames />}/>
+        <Route path="play" element={<MiniGames />} />
       </Routes>
     </>
   )

@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Link, Outlet, NavLink } from 'react-route
 import Sidebar from './sidebar'
 import '../styles/review.css'
 import Review from './review'
+import { AiFillStar } from 'react-icons/ai'
 
 const Reviews = (props) => {
     const [reviews, setReviews] = useState(props.reviews)
@@ -27,13 +28,14 @@ const Reviews = (props) => {
             <h5>Recent Reviews</h5>
             {props.reviews ? (
                 <>
+                    <div className='reviews-grid'>
                     {props.reviews.map((review) => {
                         return (
-                            <div id={review.id}>
+                            <div className='review-card' id={review.id}>
                                 <h2 onClick={() => {
                                     setReviewID(review.id)
                                 }}>
-                                    <Link to={`${review.id}`}>
+                                    <Link className='review-title' to={`${review.id}`}>
                                         {review.game}
                                     </Link>
                                 </h2>
@@ -43,16 +45,19 @@ const Reviews = (props) => {
                                     </div>
                                 </Link>
                                 
-                                <h2>
-                                    {review.title}<br/>
+                                <h2 className='review-author'>
+                                    {review.title}<br />
+                                    {review.rating} <AiFillStar /><br/>
                                     by: {review.author_username}
                                 </h2>
-                                <p>
+                                <p className='review-body'>
                                     {review.body}
                                 </p>
+                                <br/>
                             </div>
                         )
                     })}
+                    </div>
                 </>
             ) : (
                 null

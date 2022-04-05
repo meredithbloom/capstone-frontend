@@ -118,6 +118,7 @@ const Discover = (props) => {
                         <Search search={search}/>
                     </div>
                     <div className="discgrid">
+                    
                         {games.map((game) => {
                             return (
                                 <div className="gameCard" key={game.id}>
@@ -134,7 +135,7 @@ const Discover = (props) => {
                     </div>
                 </>
             ) : (
-                    null
+                    <p>reticulating splines...</p>
                 )
             }
         

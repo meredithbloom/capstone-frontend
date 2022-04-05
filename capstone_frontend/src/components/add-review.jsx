@@ -49,36 +49,12 @@ const NewReview = (props) => {
 
 
     return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <br/>
+        <>  
+            <br/>
+            <form className='review-form' onSubmit={handleSubmit}>
+                <br/><br/>
                 <h5>Leave a Review</h5>
-                <h2>{game.name}</h2>
-                            
-                <label id="title"></label><br/>
-                <input
-                    className="inputs"
-                    type="text"
-                    name="title"
-                    id="title"
-                    value={newReview.title}
-                    placeholder="review title"
-                    onChange={handleChange}
-                />
-                <br /><br />
-
-                <label id="body">Review:</label><br/>
-                <textarea
-                    className="inputs"
-                    name="body"
-                    id="body"
-                    value={newReview.body}
-                    onChange={handleChange} placeholder="review body">
-                    
-                    </textarea>
-                <br /><br />
-
-                <label id="rating">Rating:</label><br/><br/>
+                <h2>{game.name}</h2>    
                 <div className="rate">
                     <input
                         type="radio"
@@ -125,9 +101,32 @@ const NewReview = (props) => {
                     />
                     <label htmlFor="star1" title="text">1 star</label>
                 </div>
+                <br/><br/>
+                <input
+                    className="inputs"
+                    type="text"
+                    name="title"
+                    id="title"
+                    value={newReview.title}
+                    placeholder="review title"
+                    onChange={handleChange}
+                />
+                <br /><br />
+
+                <textarea
+                    className="inputs"
+                    name="body"
+                    id="body"
+                    value={newReview.body}
+                    onChange={handleChange} placeholder="review body">
+                    
+                    </textarea>
+                <br /><br />
                                                                 
                 <br/><br/>
                 <input className="btn" type="submit" value="submit" />
+                <br/>
+                <br/>
             </form>    
         </>
 

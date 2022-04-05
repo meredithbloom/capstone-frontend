@@ -1,8 +1,22 @@
 @charset "UTF-8";
 .rate {
-  float: left;
   height: 46px;
-  padding: 0 10px;
+  padding: 0px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+div.rate {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+
+.review-form {
+  margin: 0 auto;
+  width: 70%;
+  text-align: center;
+  border: 0.5px solid #C41E3D;
 }
 
 .rate:not(:checked) > input {
@@ -18,6 +32,58 @@
   cursor: pointer;
   font-size: 30px;
   color: #ccc;
+}
+
+p {
+  font-family: "Oswald", sans-serif;
+  color: #FFB627;
+  margin: 5px 0 5px 0;
+}
+
+span {
+  color: #FFB627;
+  font-family: "Bebas Neue", cursive;
+}
+
+.reviews-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.review-card {
+  border: 0.5px solid #C41E3D;
+  margin: 10px;
+}
+
+.review-game-title {
+  margin: 10px 0 10px 0;
+}
+
+.review-title {
+  color: #C41E3D;
+  text-decoration: underline;
+  margin: 5px 0 5px 0;
+}
+
+.review-author {
+  margin: 5px 0 5px 0;
+  color: #C41E3D;
+}
+
+.review-info {
+  border: 0.5px solid #C41E3D;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.review-body {
+  max-width: 250px;
+  margin: 0 auto;
 }
 
 .rate:not(:checked) > label:before {
