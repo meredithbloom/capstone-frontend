@@ -1,12 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import {
-  BrowserRouter,
-  Router,
   Routes,
   Route,
-  Link,
-  Outlet,
-  NavLink, 
   useNavigate
 } from 'react-router-dom';
 
@@ -28,15 +23,15 @@ const App = () => {
   //let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
   const API_KEY = "5a0fda4695714f4fbe032f2e92aca709"
   const BASE_URL = 'https://api.rawg.io/api'
-  const [toggleLogin, setToggleLogin] = useState(true)
+  //const [toggleLogin, setToggleLogin] = useState(true)
   const [toggleError, setToggleError] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
-  const [toggleLogout, setToggleLogout] = useState(false)
+  //const [toggleLogout, setToggleLogout] = useState(false)
   const [games, setGames] = useState([])
   const [showGame, setShowGame] = useState(null)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
-  const [userDetails, setUserDetails] = useState(null)
+  //const [userDetails, setUserDetails] = useState(null)
   const [reviews, setReviews] = useState()
   let navigate = useNavigate()
   //const [gameID, setGameID] = useState(null)
@@ -174,7 +169,7 @@ const App = () => {
 
 
 
-  
+
   useEffect(() => {
     getGames()
     getReviews()

@@ -1,5 +1,5 @@
-import axios from 'axios'
-import { BrowserRouter, Routes, Route, Link, Outlet, NavLink } from 'react-router-dom'
+//import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const Search = (props) => {
 
@@ -10,7 +10,7 @@ const Search = (props) => {
                 <div>
                     <h2>{game.name}</h2>
                     <Link to={`${game.id}`}>
-                        <img src={game.background_image} />
+                        <img src={game.background_image} alt='game cover' />
                     </Link>
                 </div>
             )

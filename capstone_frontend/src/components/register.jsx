@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
-  BrowserRouter,
-  Router,
-  Routes,
-  Route,
-  Link,
-  Outlet,
-  NavLink
+  
+  Link
+
 } from 'react-router-dom';
 
 
-import axios from 'axios';
+//import axios from 'axios';
 
 
 
@@ -21,8 +17,8 @@ const Register = (props) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("");
     const [confirmedPassword, setConfirmedPassword] = useState("")
-    const [successMessage, setSuccessMessage] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
+    //const [successMessage, setSuccessMessage] = useState("");
+    //const [errorMessage, setErrorMessage] = useState("");
 
 
     const handleSubmit = (e) => {
@@ -37,7 +33,7 @@ const Register = (props) => {
         props.handleSignUp(newUser);
     }
 
-    let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); 
+    //let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); 
     
     return (
         <div className='registerDiv'>

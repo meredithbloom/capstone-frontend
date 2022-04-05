@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter,
-  Router,
-  Routes,
-  Route,
-  Link,
-  Outlet,
-  NavLink
-} from 'react-router-dom';
+import React, { useState } from 'react';
+// import {
+//   BrowserRouter,
+//   Router,
+//   Routes,
+//   Route,
+//   Link,
+//   Outlet,
+//   NavLink
+// } from 'react-router-dom';
 import '../styles/login.css'
 
-import axios from 'axios';
+//import axios from 'axios';
 
 
 
@@ -18,7 +18,7 @@ const Login = (props) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [currentUser, setCurrentUser] = useState({})
+    //const [currentUser, setCurrentUser] = useState({})
     const [toggleError, setToggleError] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
     //const [loggedUser, setLoggedUser] = useState({email, password})

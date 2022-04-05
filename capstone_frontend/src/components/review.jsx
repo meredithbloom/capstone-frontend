@@ -1,10 +1,10 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import { BrowserRouter, Routes, Route, Link, Outlet, NavLink } from 'react-router-dom'
-import Sidebar from './sidebar'
+//import { BrowserRouter, Routes, Route, Link, Outlet, NavLink } from 'react-router-dom'
+//import Sidebar from './sidebar'
 import { useParams, useNavigate } from 'react-router-dom'
 import '../styles/review.css'
-import { AiOutlineRadiusSetting } from 'react-icons/ai'
+//import { AiOutlineRadiusSetting } from 'react-icons/ai'
 import { AiFillStar } from 'react-icons/ai'
 
 
@@ -14,7 +14,7 @@ const Review = (props) => {
     const params = useParams();
     const BEARER_TOKEN = props.currentUser.token;
     const [currentUser, setCurrentUser] = useState(props.currentUser)
-    const [isAuthenticated, setIsAuthenticated] = useState(props.isAuthenticated)
+    //const [isAuthenticated, setIsAuthenticated] = useState(props.isAuthenticated)
     
     const [reviewId, setReviewId] = useState(parseInt(params.reviewID, 10))
     const [review, setReview] = useState(null)
@@ -68,7 +68,7 @@ const Review = (props) => {
         return (
             <>
                 <h5>{review.game}</h5>
-                <img src={review.game_cover} />
+                <img src={review.game_cover} alt='game cover' />
                 <h2>{review.title}</h2>
                 <h2>author: <br/>{review.author_username}</h2>
                 <p>{review.body}</p>
