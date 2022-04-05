@@ -23,10 +23,10 @@ const App = () => {
   //let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
   const API_KEY = "5a0fda4695714f4fbe032f2e92aca709"
   const BASE_URL = 'https://api.rawg.io/api'
-  //const [toggleLogin, setToggleLogin] = useState(true)
+  const [toggleLogin, setToggleLogin] = useState(true)
   const [toggleError, setToggleError] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
-  //const [toggleLogout, setToggleLogout] = useState(false)
+  const [toggleLogout, setToggleLogout] = useState(false)
   const [games, setGames] = useState([])
   const [showGame, setShowGame] = useState(null)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -35,7 +35,8 @@ const App = () => {
   const [reviews, setReviews] = useState()
   let navigate = useNavigate()
   //const [gameID, setGameID] = useState(null)
-
+  console.log(toggleLogin)
+  console.log(toggleLogout)
 
   //POST - CREATE USER
   const handleSignUp = (newUser) => {

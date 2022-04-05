@@ -35,7 +35,7 @@ const Register = (props) => {
 
     //let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); 
     
-    
+
     return (
         <div className='registerDiv'>
            
@@ -53,7 +53,7 @@ const Register = (props) => {
                 <br /><br />
                 <input className='inputs' type="password" name="password_confirmation" placeholder="confirm password" value={confirmedPassword} onChange={(e) => setConfirmedPassword(e.target.value)} />
                 <br /><br />
-                <input type="hidden" name="_token" value={token}/>
+                
                 <button className='btn' type='submit'>Sign Up</button>
                 <br/>
             </form><br/>
