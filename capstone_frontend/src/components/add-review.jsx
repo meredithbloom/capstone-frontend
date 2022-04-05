@@ -53,7 +53,7 @@ const NewReview = (props) => {
             <form onSubmit={handleSubmit}>
                 <br/>
                 <h5>Leave a Review</h5>
-                <h2>{game.name}</h2>
+                <h2>{props.game.name}</h2>
                             
                 <label id="title"></label><br/>
                 <input
