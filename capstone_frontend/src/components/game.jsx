@@ -17,7 +17,7 @@ const Game = (props) => {
 
   const [toggleReview, setToggleReview] = useState(false)
   const [successMessage, setSuccessMessage] = useState(null)
-
+  
 
   const getGame = (gameID) => {
     axios({
@@ -30,6 +30,7 @@ const Game = (props) => {
     }).then((response) => {
       setGame(response.data)
       setPlatform(response.data.platforms[0].name)
+      console.log(platform)
       console.log(response.data)
       //setGameID(response.data.id)
 
@@ -51,6 +52,7 @@ const Game = (props) => {
         console.log(response)
         setToggleReview(false)
         setSuccessMessage('Thanks for leaving a review.')
+        console.log(successMessage)
       })
   }
 
@@ -73,7 +75,7 @@ const Game = (props) => {
         <>
         <div className="gamediv">
           <h5>{game.name}</h5>
-          <img src={game.background_image}/>
+          <img src={game.background_image} alt='game image'/>
         <div className="gameinfo">
           <ul>
             <li>{[game.rating]}<AiFillStar /></li>

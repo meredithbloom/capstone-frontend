@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { BrowserRouter, Routes, Route, Link, Outlet, NavLink } from 'react-router-dom'
-import Sidebar from './sidebar'
+import { Link } from 'react-router-dom'
+//import Sidebar from './sidebar'
 import '../styles/discover.css'
-import ReactPaginate from 'react-paginate'
+//import ReactPaginate from 'react-paginate'
 import Search from './search'
 
 const Discover = (props) => {
@@ -14,9 +14,9 @@ const Discover = (props) => {
     const [toggleGames, setToggleGames] = useState(false)
     const [gameID, setGameID] = useState(null)
     const [currentPage, setCurrentPage] = useState(1)
-    const [errorMessage, setErrorMessage] = useState("")
-    const [toggleError, setToggleError] = useState(false)
-    const [items, setItems] = useState([])
+    //const [errorMessage, setErrorMessage] = useState("")
+    //const [toggleError, setToggleError] = useState(false)
+    //const [items, setItems] = useState([])
     const [searchString, setSearchString] = useState('')
     const [search, setSearch] = useState([])
     
@@ -122,9 +122,8 @@ const Discover = (props) => {
                             return (
                                 <div className="gameCard" key={game.id}>
                                     <Link to={`${game.id}`}>
-                                        <div 
-                                            onClick={() => { setGameID(game.id) }}>
-                                            <img src={game.background_image}/>  
+                                        <div id={game.name + game.id}>
+                                            <img src={game.background_image} alt='game image'/>  
                                         </div>
                                     </Link>
                                     <h5>{game.name}</h5>

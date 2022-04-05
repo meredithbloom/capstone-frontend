@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useState } from 'react'
+//import axios from 'axios'
 import '../styles/review.css'
-import { BrowserRouter, Routes, Route, Link, Outlet, NavLink, useNavigate, useParams } from 'react-router-dom'
-import Sidebar from './sidebar'
+import { useNavigate, useParams } from 'react-router-dom'
+//import Sidebar from './sidebar'
 
 
 
@@ -14,10 +14,10 @@ const NewReview = (props) => {
     const params = useParams();
     let navigate = useNavigate();
 
-    const [title, setTitle] = useState("");
-    const [body, setBody] = useState("");
+    //const [title, setTitle] = useState("");
+    //const [body, setBody] = useState("");
     const [game, setGame] = useState(props.game)
-    const [rating, setRating] = useState("")
+    //const [rating, setRating] = useState("")
     
     let emptyReview = {
         title: '',
